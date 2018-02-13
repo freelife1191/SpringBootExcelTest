@@ -1,0 +1,33 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.10.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile('org.apache.poi:poi-ooxml:3.17') // .xlsx
+    compile('org.apache.poi:poi:3.17') // .xls
+
+    compile('org.projectlombok:lombok')
+
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.0.3")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.3")
+}
